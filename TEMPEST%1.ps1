@@ -1,4 +1,4 @@
-﻿#VERSION 0.0.0.1
+#VERSION 0.0.0.1
 #Name: TEMPEST%1.ps1
 #DEV:Daniel Estrella
 
@@ -1537,11 +1537,7 @@ function endscript {
 
 
 #Modifications
-Rename_Machine
-map_NASDrive
-multi_Tool
 dark_Theme
-Set_FirstRestartSCRIPT
 Enable_FullContextMenu
 setup_YT-DLP_Config
 
@@ -1549,37 +1545,23 @@ setup_YT-DLP_Config
 install_chocolatey
 install_NotepadPlusPlus
 Dell_Command_Update
-install_Scrivener
-install_AdobeReader
 install_KLiteCodecPack
-install_DisplayLink
-install_Twingate
 # #install_PowerBI
 
 
 $logFilePath = "$WorkingPath\install_jobs_log.txt"
 $jobs = @()
 $installCommands = @(
-    @{ Command = { choco install officeproplus2013 -y }; Label = 'officeproplus2013' },
     @{ Command = { choco install powertoys -y }; Label = 'powertoys' },
     @{ Command = { choco install pycharm-community -y }; Label = 'pycharm-community' },
-    @{ Command = { choco install googlechrome -y }; Label = 'googlechrome' },
-    @{ Command = { choco install brave -y }; Label = 'brave' },
     @{ Command = { choco install audacity -y }; Label = 'audacity' },
     @{ Command = { choco install python3 -y }; Label = 'python3' },
     @{ Command = { choco install git -y }; Label = 'git' },
     @{ Command = { choco install vscode -y }; Label = 'vscode' },
-    @{ Command = { choco install firefox -y }; Label = 'firefox' },
-    @{ Command = { choco install vlc -y }; Label = 'vlc' },
-    @{ Command = { choco install teamviewer -y }; Label = 'teamviewer' },
-    @{ Command = { choco install ccleaner -y }; Label = 'ccleaner' },
-    @{ Command = { choco install zoom -y }; Label = 'zoom' },
-    @{ Command = { choco install slack -y }; Label = 'slack' },
     @{ Command = { choco install nodejs -y }; Label = 'nodejs' },
     @{ Command = { choco install ffmpeg -y }; Label = 'ffmpeg' },
     @{ Command = { choco install 7zip -y }; Label = '7zip' },
-    @{ Command = { choco install yt-dlp -y }; Label = 'yt-dlp' },
-    @{ Command = { choco install putty.install -y }; Label = 'putty install' }
+    @{ Command = { choco install yt-dlp -y }; Label = 'yt-dlp' }
 )
 $maxConcurrentJobs = 10
 
@@ -1642,12 +1624,6 @@ Add-Content -Path $logFilePath -Value "All parallel jobs completed.`r`n"
 #Post Script Cleanup and Final Modifications
 
 Remove-WindowsWidgets
-
-Remove-OneDrive
-
-Deploy-StartMenuLayout -sourcePath "C:\Tempest\Start2.bin"
-
-Set-WindowsCopilot
 
 Hide-SearchFromTaskbar
 
